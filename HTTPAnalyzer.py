@@ -37,7 +37,7 @@ def report(site):
     if(status_code == 301):
         print(bcolors.OKBLUE + site + " ["  + str(status_code) + "] " + bcolors.OKGREEN + " - IT'S OK!" + bcolors.ENDC)
     else:
-        print(bcolors.OKBLUE + site + " [" + str(status_code) + "] " + bcolors.BOLD + bcolors.FAIL + " - NECESSITA VERIFICAÇÃO" + bcolors.ENDC)
+        print(bcolors.OKBLUE + site + " [" + str(status_code) + "] " + bcolors.BOLD + bcolors.FAIL + " - PLEASE VERIFY ME!" + bcolors.ENDC)
 
 def runFile(path):
     if(os.path.exists(path)):
