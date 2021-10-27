@@ -1,10 +1,12 @@
 # HTTP Analyzer
 
-How to use:
+Created By Wh0aMn1c0 and Th3Br41n
 
-<h1>Specific Site: </h1>
+<h2>How to use:</h2>
+
+<h3>Specific Site: </h3>
 python3 HTTPAnalyzer.py -u www.yoursite.com.br
 
 
-<h1>Search for a domain: </h1>
+<h3>Search for a domain: </h3>
 python3 HTTPAnalyzer.py -u www.yoursite.com.br
