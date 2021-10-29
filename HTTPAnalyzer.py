@@ -21,12 +21,14 @@ class bcolors:
     BOLD = '\033[1m'
     ##UNDERLINE = '\033[4m'
 
-def run():
-    print(bcolors.OKCYAN + "----------------------------------------------------------------------" + bcolors.ENDC)
+def welcome():
+    print(bcolors.OKCYAN + "-----------------------------------------------------------------------" + bcolors.ENDC)
     print(bcolors.OKCYAN + "| This program is an analyzer to find HTTP site with misconfiguration |" + bcolors.ENDC)
+    print(bcolors.OKCYAN + "-----------------------------------------------------------------------" + bcolors.ENDC)
+    print(bcolors.OKCYAN + "|" + bcolors.OKBLUE + "                   Create By Wh0aMn1c0 and Th3Br41n                  " + bcolors.OKCYAN + "|"  + bcolors.ENDC)
     print(bcolors.OKCYAN + "----------------------------------------------------------------------" + bcolors.ENDC)
-    print(bcolors.OKCYAN + "|" + bcolors.OKBLUE + "                   Create By Wh0aMn1c0 and Th3Br41n" + bcolors.OKCYAN + "|"  + bcolors.ENDC)
-    print(bcolors.OKCYAN + "----------------------------------------------------------------------" + bcolors.ENDC)
+
+def run():
     print(bcolors.WARNING + "Starting the status code scan" + bcolors.ENDC)
 
 def get_url(url):
@@ -72,10 +74,12 @@ if(args.o):
     outputBool = True
     print("Writing on "+args.o)
 if(args.u):
+    welcome()
     run()
     report(args.u)
 
 elif(args.uL):
+    welcome()
     #LISTANDO DOMINIOS
     domain = args.uL
     print(bcolors.WARNING + "Listing subdomains using google." + bcolors.ENDC)
@@ -84,5 +88,5 @@ elif(args.uL):
 
     run()
     runFile('domains')
-    with ThreadPoolExecutor(max_workers=10) as pool:
+    with ThreadPoolExecutor(max_workers=20) as pool:
         response_list = list(pool.map(report,list_of_urls))
