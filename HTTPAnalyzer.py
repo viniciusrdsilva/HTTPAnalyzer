@@ -32,7 +32,10 @@ def run():
     print(bcolors.WARNING + "Starting the status code scan" + bcolors.ENDC)
 
 def get_url(url):
-    return requests.get("http://"+url, allow_redirects=False).status_code
+    try:
+        return requests.get("http://"+url, allow_redirects=False).status_code
+    except requests.exceptions.ConnectionError:
+        return '404'
 
 def report(site):
     status_code = get_url(site)
